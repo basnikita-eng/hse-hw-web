@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Я — студент ВШЭ | Обратная связь</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="logo" aria-label="Логотип">
+        <div class="logo__mark">H</div>
+        <div>HSE Student</div>
+      </div>
+
+      <div class="search" role="search">
+        <span class="icon" aria-hidden="true">⌕</span>
+        <input type="search" placeholder="Поиск (демо)" aria-label="Поиск" />
+      </div>
+
+      <div class="userchip" aria-label="Пользователь">
+        <div class="avatar" aria-hidden="true">НБ</div>
+        <div>
+          <div style="font-weight:700">Никита Башин</div>
+          <div style="opacity:.85;font-size:12px">БПМ 221 • 4 курс</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="container layout">
+      <nav class="card side" aria-label="Навигация">
+        <div class="navtitle">Меню</div>
+        <div class="menu">
+          <a href="index.html">🏠 Моя страница</a>
+          <a href="feedback.html" aria-current="page">✉️ Обратная связь</a>
+        </div>
+
+        <div class="navtitle">Подсказка</div>
+        <div style="padding:0 10px 10px;color:var(--muted);font-size:12px;">
+          Форма учебная: данные никуда не отправляются (action="#").
+        </div>
+      </nav>
+
+      <main class="card main">
+        <article>
+          <header>
+            <h1 class="h1">Обратная связь</h1>
+            <p class="subtitle">
+              Форма с разными полями ввода. Всё базово и без лишних данных.
+            </p>
+          </header>
+
+          <section aria-labelledby="form-title">
+            <h2 id="form-title" style="margin:0 0 10px;font-size:16px;">Форма</h2>
+
+            <form class="card form" action="#" method="post" autocomplete="on">
+              <fieldset class="card" style="padding:12px;margin:0;">
+                <legend><strong>Кто вы</strong></legend>
+
+                <div class="field">
+                  <label for="name">Имя <span aria-hidden="true">*</span></label>
+                  <input id="name" name="name" type="text" required minlength="2" placeholder="Например, Анна" />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email <span aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" required placeholder="name@example.com" />
+                </div>
+
+                <div class="field">
+                  <label for="status">Статус</label>
+                  <select id="status" name="status">
+                    <option value="">— выберите —</option>
+                    <option value="student">студент</option>
+                    <option value="teacher">преподаватель</option>
+                    <option value="guest">гость</option>
+                    <option value="other">другое</option>
+                  </select>
+                </div>
+              </fieldset>
+
+              <fieldset class="card" style="padding:12px;margin:0;">
+                <legend><strong>Сообщение</strong></legend>
+
+                <div class="field">
+                  <label for="topic">Тема</label>
+                  <input id="topic" name="topic" type="text" list="topics" placeholder="Например, вопрос по сайту" />
+                  <datalist id="topics">
+                    <option value="Вопрос по сайту"></option>
+                    <option value="Предложение улучшения"></option>
+                    <option value="Ошибки/замечания"></option>
+                    <option value="Другое"></option>
+                  </datalist>
+                </div>
+
+                <div class="field">
+                  <label for="message">Текст сообщения <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" required placeholder="Напишите сообщение..."></textarea>
+                </div>
+
+                <div class="field">
+                  <label for="date">Когда удобно получить ответ</label>
+                  <input id="date" name="date" type="date" />
+                </div>
+
+                <div class="field">
+                  <label for="rate">Оценка сайта (0–10)</label>
+                  <input id="rate" name="rate" type="range" min="0" max="10" value="8" />
+                  <div class="small">Ползунок — демонстрация поля <code>range</code>.</div>
+                </div>
+
+                <div class="field">
+                  <div class="inline" aria-label="Как ответить">
+                    <span><strong>Как ответить?</strong></span>
+                    <label><input type="radio" name="reply" value="email" checked /> email</label>
+                    <label><input type="radio" name="reply" value="none" /> не нужно</label>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="inline">
+                    <label>
+                      <input type="checkbox" name="agree" required />
+                      Согласен(на) на обработку данных для учебных целей <span aria-hidden="true">*</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="actions">
+                <button class="btn" type="submit">Отправить</button>
+                <button class="btn secondary" type="reset">Очистить</button>
+                <a class="btn secondary" href="index.html" role="button">На главную</a>
+              </div>
+
+              <p class="small" style="margin:0;">
+                Поля со звёздочкой обязательны. Данные не сохраняются и не отправляются на сервер.
+              </p>
+            </form>
+          </section>
+
+          <footer class="footer">
+            <p style="margin:0;">
+              © <time datetime="2026">2026</time> Никита Башин • БПМ 221 • ВШЭ
+            </p>
+          </footer>
+        </article>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
