@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Никита Башин — ВШЭ</title>
   <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
   <style>
-    /* Локальные стили (тег style) */
     #about { scroll-margin-top: 80px; }
     #posts { scroll-margin-top: 80px; }
+    #map-section { scroll-margin-top: 80px; }
+    #chat-section { scroll-margin-top: 80px; }
     article > header .subtitle { text-transform: none; }
     .note-local { font-style: italic; color: #405160; }
   </style>
@@ -51,6 +58,8 @@
           <a href="#about">👤 Профиль</a>
           <a href="#posts">📰 Записи</a>
           <a href="#study">🎓 Учеба</a>
+          <a href="#map-section">🗺️ Карта</a>
+          <a href="#chat-section">💬 Чат</a>
         </div>
       </nav>
 
@@ -58,30 +67,38 @@
         <article>
           <header>
             <h1 class="h1">Я — студент ВШЭ</h1>
-            <p class="subtitle">Страница-профиль с короткой лентой и базовой информацией.</p>
+            <p class="subtitle">Страница-профиль с короткой лентой, картой и чатом.</p>
           </header>
 
           <section class="profile" aria-labelledby="about">
-  <div class="profile-photo-block">
-    <img src="https://i.ytimg.com/vi/lJ0zRyhEeLc/maxresdefault.jpg" alt="Фото профиля" class="profile-photo">
-    <div class="profile-name">Никита Башин</div>
-    <div class="profile-sub">БПМ 221 • 4 курс</div>
-  </div>
+            <div class="profile-photo-block">
+              <img
+                src="https://i.ytimg.com/vi/lJ0zRyhEeLc/maxresdefault.jpg"
+                alt="Фото профиля"
+                class="profile-photo"
+              />
+              <div class="profile-name">Никита Башин</div>
+              <div class="profile-sub">БПМ 221 • 4 курс</div>
+            </div>
 
-  <div>
-    <h2 id="about" style="margin:0;font-size:16px;">Профиль</h2>
-    <p style="margin:8px 0 0;">
-      Направление: <em>прикладная математика</em>.
-      Учеба, проекты и системность — главное, что ценю в процессе.
-    </p>
+            <div>
+              <h2 id="about" style="margin:0;font-size:16px;">Профиль</h2>
+              <p style="margin:8px 0 0;">
+                Направление: <em>прикладная математика</em>.
+                Учеба, проекты и системность — главное, что мне нравится в процессе.
+              </p>
 
-    <div class="badges" style="margin-top:10px;" aria-label="Коротко">
-      <span class="badge">НИУ ВШЭ</span>
-      <span class="badge">Статус: студент</span>
-      <span class="badge">Город: Москва</span>
-    </div>
-  </div>
-</section>
+              <div class="badges" style="margin-top:10px;" aria-label="Коротко">
+                <span class="badge">НИУ ВШЭ</span>
+                <span class="badge">Статус: студент</span>
+                <span class="badge">Город: Москва</span>
+              </div>
+
+              <p class="note-local" style="margin-top:10px;">
+                Люблю, когда все собрано аккуратно: задачи, заметки и небольшой порядок в голове.
+              </p>
+            </div>
+          </section>
 
           <hr class="sep" />
 
@@ -153,6 +170,39 @@
             </section>
           </section>
 
+          <hr class="sep" />
+
+          <section id="map-section" class="block" aria-labelledby="map-title">
+            <h2 id="map-title">Карта</h2>
+            <p class="small" style="margin-bottom:10px;">
+              Ниже добавлена интерактивная карта.
+            </p>
+            <div id="map" class="map-box"></div>
+          </section>
+
+          <hr class="sep" />
+
+          <section id="chat-section" class="block" aria-labelledby="chat-title">
+            <h2 id="chat-title">Чат</h2>
+            <div class="chat card">
+              <div id="chat-messages" class="chat-messages">
+                <div class="chat-message bot">
+                  <div class="chat-bubble">Привет. Это учебный чат на странице. Можешь написать сообщение.</div>
+                </div>
+              </div>
+
+              <form id="chat-form" class="chat-form">
+                <input id="chat-input" type="text" placeholder="Напиши сообщение..." autocomplete="off" />
+                <button type="submit" class="btn">Отправить</button>
+              </form>
+
+              <div class="chat-voice">
+                <button id="voice-btn" type="button" class="btn secondary">Записать голосовое</button>
+                <span id="voice-status" class="small">Голосовые сообщения доступны в браузере</span>
+              </div>
+            </div>
+          </section>
+
           <aside class="card" style="margin-top:12px;padding:12px;" aria-label="Ссылка на форму">
             <h2 style="margin:0 0 8px;font-size:16px;">Связаться</h2>
             <p style="margin:0;">
@@ -170,5 +220,12 @@
       </main>
     </div>
   </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="app.js"></script>
 </body>
 </html>
